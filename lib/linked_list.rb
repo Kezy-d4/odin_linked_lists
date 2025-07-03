@@ -11,7 +11,11 @@ class LinkedList
 
   # append(node) adds a new node to the end of the list
   def append(node)
-    return unless node.is_a?(Node)
+    unless node.is_a?(Node)
+      puts "ERROR! Attempted to append a non-Node object to a linked list. " \
+           "The operation has been aborted and no changes have been made."
+      return
+    end
     return self.head = node if head.nil?
 
     current_node = head

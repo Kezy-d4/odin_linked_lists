@@ -12,8 +12,7 @@ class LinkedList
   # append(node) adds a new node to the end of the list
   def append(node)
     unless node.is_a?(Node)
-      puts "ERROR! Attempted to append a non-Node object to a linked list. " \
-           "The operation has been aborted and no changes have been made."
+      puts error_msg("append")
       return
     end
     return self.head = node if head.nil?
@@ -23,6 +22,18 @@ class LinkedList
     current_node.next_node = node
   end
 
+  # prepend(node) adds a new node to the start of the list
+  def prepend(node)
+    unless node.is_a?(Node)
+      puts error_msg("prepend")
+      return
+    end
+    return self.head = node if head.nil?
+
+    node.next_node = head
+    self.head = node
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -30,6 +41,13 @@ class LinkedList
       p current_node.data
       current_node = current_node.next_node
     end
+  end
+
+  private
+
+  def error_msg(operation)
+    "ERROR! Attempted to #{operation} a non-Node object to a linked list. " \
+      "Operation aborted without changes."
   end
 end
 
@@ -43,4 +61,5 @@ node2.next_node = node3
 
 list = LinkedList.new
 list.append(node1)
+list.prepend(Node.new(0))
 list.print_all_nodes

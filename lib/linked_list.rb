@@ -3,6 +3,11 @@ require_relative "node"
 # Blueprint for instantiating a new linked list with given head node. Available
 # instance methods handle insertion, deletion, searching, and reading operations.
 class LinkedList
+  # Regarding requirement number four of the assignment, self.head.data can be
+  # called to return the first nodes data. There is no need to write a new
+  # method for this purpose as the getter method already exists to fetch this
+  # instance variable thanks to attr_accessor.
+
   attr_accessor :head
 
   def initialize(head = nil)

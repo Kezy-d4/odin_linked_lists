@@ -145,24 +145,3 @@ class LinkedList # rubocop:disable Metrics/ClassLength
       "constructor. List instantiated, but head node converted to nil."
   end
 end
-
-# Sample code:
-node1 = Node.new("A")
-node2 = Node.new("B")
-node3 = Node.new("C")
-
-node1.next_node = node2
-node2.next_node = node3
-
-list = LinkedList.new
-list.append(node1)
-list.prepend(Node.new(0))
-list.pop
-
-puts list
-
-puts "Size: #{list.size}"
-puts "Tail: #{list.tail}"
-puts "Data at index 1: #{list.at(1)}"
-puts "List contains data nil?: #{list.contains?(nil)}"
-puts "Index of node containing data A: #{list.find('A')}"

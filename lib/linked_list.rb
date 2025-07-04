@@ -7,7 +7,6 @@ class LinkedList
   # called to return the first node's data. There is no need to write a new
   # method for this purpose as the getter method already exists to fetch this
   # instance variable thanks to attr_accessor.
-
   attr_accessor :head
 
   def initialize(head = nil)
@@ -91,6 +90,20 @@ class LinkedList
     previous_node.next_node = nil
   end
 
+  # contains?(data) returns true if any of the nodes in the list contain the
+  # passed in data and otherwise returns false.
+  def contains?(data)
+    return false if head.nil?
+
+    current_node = head
+    until current_node.nil?
+      return true if current_node.data == data
+
+      current_node = current_node.next_node
+    end
+    false
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -132,3 +145,4 @@ list.print_all_nodes
 puts "Size: #{list.size}"
 puts "Tail: #{list.tail}"
 puts "Data at index 1: #{list.at(1)}"
+puts "List contains nil?: #{list.contains?(nil)}"

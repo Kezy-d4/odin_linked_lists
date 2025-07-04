@@ -2,11 +2,12 @@ require_relative "node"
 
 # Blueprint for instantiating a new linked list with given head node. Available
 # instance methods handle insertion, deletion, searching, and reading operations.
-class LinkedList
-  # Regarding requirement number four of the assignment, self.head.data can be
-  # called to return the first node's data. There is no need to write a new
-  # method for this purpose as the getter method already exists to fetch this
-  # instance variable thanks to attr_accessor.
+
+# Regarding requirement number four of the assignment, self.head.data can be
+# called to return the first node's data. There is no need to write a new
+# method for this purpose as the getter method already exists to fetch this
+# instance variable thanks to attr_accessor.
+class LinkedList # rubocop:disable Metrics/ClassLength
   attr_accessor :head
 
   def initialize(head = nil)
@@ -119,13 +120,17 @@ class LinkedList
     end
   end
 
-  # Useful for debugging and testing
-  def print_all_nodes
+  # to_s represent your LinkedList objects as strings, so you can print them out
+  # and preview them in the console. The format should be:
+  # ( value ) -> ( value ) -> ( value ) -> nil
+  def to_s
+    puts "Data in list:"
     current_node = head
     until current_node.nil?
-      p current_node.data
+      puts current_node.data
       current_node = current_node.next_node
     end
+    puts current_node
   end
 
   private
@@ -143,7 +148,7 @@ end
 
 # Sample code:
 node1 = Node.new("A")
-node2 = Node.new
+node2 = Node.new("B")
 node3 = Node.new("C")
 
 node1.next_node = node2
@@ -154,11 +159,10 @@ list.append(node1)
 list.prepend(Node.new(0))
 list.pop
 
-puts "Data:"
-list.print_all_nodes
+puts list
 
 puts "Size: #{list.size}"
 puts "Tail: #{list.tail}"
 puts "Data at index 1: #{list.at(1)}"
-puts "List contains nil?: #{list.contains?(nil)}"
+puts "List contains data nil?: #{list.contains?(nil)}"
 puts "Index of node containing data A: #{list.find('A')}"

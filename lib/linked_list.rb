@@ -73,6 +73,20 @@ class LinkedList
     current_node.data
   end
 
+  # pop removes the last element from the list
+  def pop
+    return if head.nil?
+    return self.head = nil if head.next_node.nil?
+
+    current_node = head
+    previous_node = nil
+    until current_node.next_node.nil?
+      previous_node = current_node
+      current_node = current_node.next_node
+    end
+    previous_node.next_node = nil
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -101,6 +115,7 @@ node2.next_node = node3
 list = LinkedList.new
 list.append(node1)
 list.prepend(Node.new(0))
+list.pop
 
 puts "Data:"
 list.print_all_nodes

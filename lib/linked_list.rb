@@ -104,6 +104,21 @@ class LinkedList
     false
   end
 
+  # find(data) returns the index of the node containing data or nil if not
+  # found
+  def find(data)
+    return if head.nil?
+
+    current_node = head
+    current_index = 0
+    until current_node.nil?
+      return current_index if current_node.data == data
+
+      current_node = current_node.next_node
+      current_index += 1
+    end
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -146,3 +161,4 @@ puts "Size: #{list.size}"
 puts "Tail: #{list.tail}"
 puts "Data at index 1: #{list.at(1)}"
 puts "List contains nil?: #{list.contains?(nil)}"
+puts "Index of node containing data A: #{list.find('A')}"

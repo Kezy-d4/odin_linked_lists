@@ -52,7 +52,7 @@ class LinkedList
 
   # tail returns the last node in the list
   def tail
-    return nil if head.nil?
+    return if head.nil?
 
     current_node = head
     current_node = current_node.next_node until current_node.next_node.nil?
@@ -61,8 +61,8 @@ class LinkedList
 
   # at(index) returns the node at the given index
   def at(index)
-    return nil if head.nil?
-    return nil unless index.between?(0, size - 1)
+    return if head.nil?
+    return unless index.between?(0, size - 1)
 
     current_node = head
     current_index = 0

@@ -11,13 +11,17 @@ class LinkedList
   attr_accessor :head
 
   def initialize(head = nil)
+    unless head.nil? || head.is_a?(Node)
+      puts constructor_node_argument_error_msg
+      head = nil
+    end
     @head = head
   end
 
   # append(node) adds a new node to the end of the list
   def append(node)
     unless node.is_a?(Node)
-      puts error_msg("append")
+      puts node_argument_error_msg("append")
       return
     end
     return self.head = node if head.nil?
@@ -30,7 +34,7 @@ class LinkedList
   # prepend(node) adds a new node to the start of the list
   def prepend(node)
     unless node.is_a?(Node)
-      puts error_msg("prepend")
+      puts node_argument_error_msg("prepend")
       return
     end
     return self.head = node if head.nil?
@@ -98,9 +102,14 @@ class LinkedList
 
   private
 
-  def error_msg(operation)
-    "ERROR! Attempted to #{operation} a non-Node object to a linked list. " \
+  def node_argument_error_msg(operation)
+    "ERROR! Attempted to #{operation} a non-Node argument to a linked list. " \
       "Operation aborted without changes."
+  end
+
+  def constructor_node_argument_error_msg
+    "ERROR! Attempted to pass a non-Node head argument to linked list " \
+      "constructor. List instantiated, but head node converted to nil."
   end
 end
 

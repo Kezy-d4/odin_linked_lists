@@ -34,6 +34,17 @@ class LinkedList
     self.head = node
   end
 
+  # size returns the total number of nodes in the list
+  def size
+    count = 0
+    current_node = head
+    until current_node.nil?
+      count += 1
+      current_node = current_node.next_node
+    end
+    count
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -63,3 +74,4 @@ list = LinkedList.new
 list.append(node1)
 list.prepend(Node.new(0))
 list.print_all_nodes
+p list.size

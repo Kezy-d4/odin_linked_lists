@@ -4,7 +4,7 @@ require_relative "node"
 # instance methods handle insertion, deletion, searching, and reading operations.
 class LinkedList
   # Regarding requirement number four of the assignment, self.head.data can be
-  # called to return the first nodes data. There is no need to write a new
+  # called to return the first node's data. There is no need to write a new
   # method for this purpose as the getter method already exists to fetch this
   # instance variable thanks to attr_accessor.
 

@@ -124,13 +124,13 @@ class LinkedList # rubocop:disable Metrics/ClassLength
   # and preview them in the console. The format should be:
   # ( value ) -> ( value ) -> ( value ) -> nil
   def to_s
-    puts "Data in list:"
+    print "Data in list: "
     current_node = head
     until current_node.nil?
-      puts current_node.data
+      print "(#{current_node.data}) -> "
       current_node = current_node.next_node
     end
-    puts current_node
+    print "(#{current_node}) "
   end
 
   private

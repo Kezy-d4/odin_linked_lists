@@ -59,6 +59,20 @@ class LinkedList
     current_node.data
   end
 
+  # at(index) returns the node at the given index
+  def at(index)
+    return nil if head.nil?
+    return nil unless index.between?(0, size - 1)
+
+    current_node = head
+    current_index = 0
+    until current_index == index
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    current_node.data
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -87,6 +101,10 @@ node2.next_node = node3
 list = LinkedList.new
 list.append(node1)
 list.prepend(Node.new(0))
+
+puts "Data:"
 list.print_all_nodes
-p list.size
-p list.tail
+
+puts "Size: #{list.size}"
+puts "Tail: #{list.tail}"
+puts "Data at index 1: #{list.at(1)}"

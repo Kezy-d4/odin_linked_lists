@@ -50,6 +50,15 @@ class LinkedList
     count
   end
 
+  # tail returns the last node in the list
+  def tail
+    return nil if head.nil?
+
+    current_node = head
+    current_node = current_node.next_node until current_node.next_node.nil?
+    current_node.data
+  end
+
   # Useful for debugging and testing
   def print_all_nodes
     current_node = head
@@ -80,3 +89,4 @@ list.append(node1)
 list.prepend(Node.new(0))
 list.print_all_nodes
 p list.size
+p list.tail

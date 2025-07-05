@@ -13,6 +13,7 @@ list.append(node1)
 list.prepend(Node.new(0))
 list.pop
 list.insert_at(Node.new("C"), 3)
+list.remove_at(2)
 
 puts list
 

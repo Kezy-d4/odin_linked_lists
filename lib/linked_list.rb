@@ -154,6 +154,28 @@ class LinkedList # rubocop:disable Metrics/ClassLength
     node.next_node = next_node
   end
 
+  # remove_at(index) removes the node at the given index
+  def remove_at(index) # rubocop:disable Metrics/MethodLength
+    return if head.nil?
+
+    current_node = head
+    previous_node = nil
+    current_index = 0
+    return self.head = current_node.next_node if index.zero?
+
+    until current_index == index
+      return if current_node.nil?
+
+      previous_node = current_node
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    return if current_node.nil?
+
+    next_node = current_node.next_node
+    previous_node.next_node = next_node
+  end
+
   private
 
   def node_argument_error_msg(operation)

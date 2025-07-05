@@ -5,7 +5,7 @@ A custom Ruby linked list implementation developed as part of
 
 # How to Install and Run
 1. Clone this repository onto your local machine
-2. Ensure you have the required Ruby version installed according to the `.ruby-version` file.
+2. Ensure you have the required Ruby version installed according to the `.ruby-version` file
 3. Run the main file in the root of the repository via bundler
 
 # Features

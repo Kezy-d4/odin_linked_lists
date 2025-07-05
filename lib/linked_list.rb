@@ -133,6 +133,27 @@ class LinkedList # rubocop:disable Metrics/ClassLength
     print "(#{current_node}) "
   end
 
+  # insert_at(node, index) inserts a new node at the given index.
+  def insert_at(node, index) # rubocop:disable Metrics/MethodLength
+    unless node.is_a?(Node)
+      puts node_argument_error_msg("insert")
+      return
+    end
+    current_node = head
+    current_index = 0
+    until current_index == index - 1
+      return if current_node.nil?
+
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    return if current_node.nil?
+
+    next_node = current_node.next_node
+    current_node.next_node = node
+    node.next_node = next_node
+  end
+
   private
 
   def node_argument_error_msg(operation)

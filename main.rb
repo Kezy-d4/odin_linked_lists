@@ -12,6 +12,7 @@ list = LinkedList.new
 list.append(node1)
 list.prepend(Node.new(0))
 list.pop
+list.insert_at(Node.new("C"), 3)
 
 puts list
 

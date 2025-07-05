@@ -22,3 +22,15 @@ puts "Tail: #{list.tail}"
 puts "Data at index 1: #{list.at(1)}"
 puts "List contains data nil?: #{list.contains?(nil)}"
 puts "Index of node containing data A: #{list.find('A')}"
+
+# Assignment testing
+# list = LinkedList.new
+
+# list.append(Node.new("dog"))
+# list.append(Node.new("cat"))
+# list.append(Node.new("parrot"))
+# list.append(Node.new("hamster"))
+# list.append(Node.new("snake"))
+# list.append(Node.new("turtle"))
+
+# puts list
